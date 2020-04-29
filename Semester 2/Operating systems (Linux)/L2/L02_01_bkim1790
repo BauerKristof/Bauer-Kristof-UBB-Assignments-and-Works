@@ -1,0 +1,211 @@
+﻿2. laborfeladat - 2019
+név:Bauer Kristof
+azonosító:bkim1790
+
+1. Feladat 
+
+A) 
+
+Hozza létre a következő katalógusszerkezetet, majd listázza azt. 
+
+
+gyumolcs
+       |
+       |- bokor
+       |      |- malna
+       |      |- mogyoro
+       |      |- szilva
+       |
+       |- fa
+       |   |- alma
+       |
+       |- fold
+             |- eper
+             |- gesztenye
+
+bkim1790@bkim1790:~$ mkdir -p ./gyumolcs/{bokor/{malna,mogyoro,szilva},fa/alma,fold/{eper,gesztenye}}
+bkim1790@bkim1790:~$ tree gyumolcs
+gyumolcs
+|-- bokor
+|   |-- malna
+|   |-- mogyoro
+|   `-- szilva
+|-- fa
+|   `-- alma
+`-- fold
+    |-- eper
+    `-- gesztenye
+
+9 directories, 0 files
+
+
+Készítsen másolatot: 
+
+a gyumolcs/fold/eper katalógusról a gyumolcs/fa katalógusba 
+bkim1790@bkim1790:~$ cp -r gyumolcs/fold/eper gyumolcs/fa
+
+a gyumolcs/bokor/malna katalógusról a gyumolcs/fa katalógusba
+bkim1790@bkim1790:~$ cp -r gyumolcs/bokor/malna gyumolcs/fa
+ 
+
+
+Végezze el a következő áthelyezéseket: 
+
+a gyumolcs/bokor/szilva katalógust helyezze át a gyumolcs/fa katalógusba 
+bkim1790@bkim1790:~$ mv gyumolcs/bokor/szilva gyumolcs/fa
+
+a gyumolcs/fold/gesztenye katalógust helyezze át a gyumolcs/fa katalógusba 
+bkim1790@bkim1790:~$ mv gyumolcs/fold/gesztenye gyumolcs/fa
+
+
+Törölje a gumolcs/fold katalógust a teljes tartalmával. 
+bkim1790@bkim1790:~$ rm -r gyumolcs/fold
+
+Hozza létre a következő szöveges állományokat: 
+
+gyumolcs/bokor/malna/leiras 
+bkim1790@bkim1790:~$ cat > gyumolcs/bokor/malna/leiras
+
+
+gyumolcs/fa/felsorolas 
+bkim1790@bkim1790:~$ cat > gyumolcs/fa/felsorolas
+
+
+
+A leiras szöveges állományba írjon 3 sort a málnáról. 
+bkim1790@bkim1790:~$ cat >>  gyumolcs/bokor/malna/leiras
+a malna az egy finom gyumolcs
+a medvek nagyon szeretik
+nyaron bokron terem
+
+A felsorolas szöveges állományba soroljon fel külön sorba 5 olyan gyümölcsöt, amelyek fán teremnek. Listázza a gyumolcs katalógus tartalmát úgy, hogy megjelenjen az alkatalógusok tartalma is. Ezután listázza az aktuális (munka)katalógus nevét. 
+bkim1790@bkim1790:~$ cat >> gyumolcs/fa/felsorolas
+alma
+citrom
+korte
+dio
+eper
+
+bkim1790@bkim1790:~$ dir -R gyumolcs/
+gyumolcs/:
+bokor  fa
+
+gyumolcs/bokor:
+malna  mogyoro
+
+gyumolcs/bokor/malna:
+leiras
+
+gyumolcs/bokor/mogyoro:
+
+gyumolcs/fa:
+alma  eper  felsorolas	gesztenye  malna  szilva
+
+gyumolcs/fa/alma:
+
+gyumolcs/fa/eper:
+
+gyumolcs/fa/gesztenye:
+
+gyumolcs/fa/malna:
+
+gyumolcs/fa/szilva:
+
+bkim1790@bkim1790:~$ pwd
+/home/bkim1790
+
+
+Térjen vissza a saját home katalógusába és kerestesse meg az összes olyan file-t, amelyek nevének második betűje e. 
+bkim1790@bkim1790:~$ find ~/ -name "?e*" 
+/home/bkim1790/Downloads/feladatlap_linux~
+/home/bkim1790/labor1/temp1
+/home/bkim1790/labor1/temp1_copy
+/home/bkim1790/labor1/temp1_copy/temp1
+/home/bkim1790/labor1/temp2
+/home/bkim1790/labor1/nevsor
+
+Tegye mindenki számára olvashatóvá a felsorolas file-t. 
+bkim1790@bkim1790:~$ chmod uog+r gyumolcs/fa/felsorolas
+
+Listázza ki, hogy mennyi helyet foglal a merevlemezen a gyumolcs katalógus az alkatalógusaival együtt. Az alkatalógusok méretei ne jelenjenek meg. 
+bkim1790@bkim1790:~$ du -s -BK  gyumolcs
+48K	gyumolcs
+
+Listázza ABC-szerint rendezve a felsorolas file tartalmát. 
+bkim1790@bkim1790:~$ sort gyumolcs/fa/felsorolas
+alma
+citrom
+dio
+eper
+korte
+
+
+Számoltassa meg a leiras file-ban szereplő szavakat. 
+bkim1790@bkim1790:~$ wc -w gyumolcs/bokor/malna/leiras
+13 gyumolcs/bokor/malna/leiras
+
+
+
+
+B) 
+
+Listázza ki azokat a felhasználókat akik be vannak jelentkezve, és az általuk futtatott folyamatokat (a laborban megoldandó).
+[bkim1790@linux ~]$ w
+ 15:10:31 up  5:30, 88 users,  load average: 0,04, 0,24, 0,38
+USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
+ccim1799 pts/1    82.208.133.143   15:08   17.00s  0.08s  0.08s -bash
+fhim1811 pts/2    82.208.133.143   13:57    6.00s  1.58s  1.52s joe feladatlap_
+taim1878 pts/3    172.30.112.215   15:09   12.00s  0.07s  0.07s -bash
+gnam0208 pts/4    172.30.112.168   15:09   10.00s  0.06s  0.06s -bash
+
+
+Listázza ki egy felhasználó folyamatait. (Pl. kérdezze meg az ön mellett ülő felhasználó azonosítóját és az ő folyamatait listázza) (a laborban megoldandó). 
+[bkim1790@linux ~]$ w dtim1806
+ 15:11:34 up  5:31, 88 users,  load average: 0,15, 0,22, 0,36
+USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
+dtim1806 pts/83   82.208.133.143   14:26   16.00s  1.14s  1.13s -bash
+dtim1806 pts/84   82.208.133.143   14:27   33.00s  0.14s  0.14s -bash
+
+
+Írassa ki a gazdagép (host) nevét. 
+[bkim1790@linux ~]$ hostname
+linux.scs.ubbcluj.ro
+
+
+Vizsgálja meg, hogy elérhető-e a nessie.cs.ubbcluj.ro szerver. Csak 3 elérési próbálkozást engedélyezzen. 
+[bkim1790@linux ~]$ ping -c3 nessie.cs.ubbcluj.ro
+PING nessie.cs.ubbcluj.ro (172.30.0.3) 56(84) bytes of data.
+64 bytes from nessie.cs.ubbcluj.ro (172.30.0.3): icmp_seq=1 ttl=64 time=0.259 ms
+64 bytes from nessie.cs.ubbcluj.ro (172.30.0.3): icmp_seq=2 ttl=64 time=0.225 ms
+64 bytes from nessie.cs.ubbcluj.ro (172.30.0.3): icmp_seq=3 ttl=64 time=0.296 ms
+
+--- nessie.cs.ubbcluj.ro ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2001ms
+rtt min/avg/max/mdev = 0.225/0.260/0.296/0.029 ms
+
+
+Határozza meg a www.google.com szerver IP címét. 
+[bkim1790@linux ~]$ nslookup www.google.com
+Server:		172.30.0.14
+Address:	172.30.0.14#53
+
+Non-authoritative answer:
+Name:	www.google.com
+Address: 216.58.208.36
+
+
+Törölje le a képernyő tartalmát. 
+[bkim1790@linux ~]$ clear
+
+Listázza ki, hogy a rendszerdátum szerint melyik évben és hónapban vagyunk. A teljes évszámot listáztassuk ki, ne csak az utolsó két számjegyet és a hónap teljes neve jelenjen meg. 
+[bkim1790@linux ~]$ date +%G"."%B
+2019.martie
+
+
+Írassa ki, hogy mióta fut a rendszer. 
+[bkim1790@linux ~]$ uptime
+ 15:28:59 up  5:48, 84 users,  load average: 0.42, 0.32, 0.28
+
+Írassa ki a PATH környezeti változó értékét.
+[bkim1790@linux ~]$ echo $PATH
+/usr/java/apache-maven-3.2.1/bin:/usr/java/jdk1.8.0_162/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/lib64/openmpi/bin:/home/scs/licenta/an1/gr511/bkim1790/bin

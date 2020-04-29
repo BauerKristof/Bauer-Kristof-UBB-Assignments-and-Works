@@ -1,0 +1,25 @@
+A LISTA TARTALMA
+ID:  1222 Varakozasi ido: 5
+ID:  4364 Varakozasi ido: 150
+ID:  1104 Varakozasi ido: 1
+ID:  2237 Varakozasi ido: 10
+ID:  3654 Varakozasi ido: 12
+ID:  6521 Varakozasi ido: 33
+ID:  2587 Varakozasi ido: 10
+ID:  3589 Varakozasi ido: 15
+ID:  1103 Varakozasi ido: 2
+ID:  8976 Varakozasi ido: 23
+ID:  1596 Varakozasi ido: 34
+ID:  1897 Varakozasi ido: 12
+ID:  1954 Varakozasi ido: 3
+Atlag varkaozasi ido: 23.8462
+A LISTA TARTALMA
+ID:  6521 Varakozasi ido: 33
+ID:  2587 Varakozasi ido: 10
+ID:  3589 Varakozasi ido: 15
+ID:  1103 Varakozasi ido: 2
+ID:  8976 Varakozasi ido: 23
+ID:  1596 Varakozasi ido: 34
+ID:  1897 Varakozasi ido: 12
+ID:  1954 Varakozasi ido: 3
+Atlag varkaozasi ido: 16.5

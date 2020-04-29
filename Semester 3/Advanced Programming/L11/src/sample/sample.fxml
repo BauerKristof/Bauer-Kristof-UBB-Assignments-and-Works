@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="279.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Control">
+    <children>
+        <Label layoutX="45.0" layoutY="40.0" text="Age:" />
+        <Label layoutX="43.0" layoutY="88.0" text="Name:" />
+        <TextField fx:id="nameTextField" layoutX="99.0" layoutY="84.0" prefHeight="24.0" prefWidth="157.0" promptText="Name" />
+        <Line endX="180.0" layoutX="200.0" layoutY="143.0" opacity="0.5" startX="-180.0" strokeLineCap="ROUND" strokeWidth="3.0" />
+        <Button layoutX="266.0" layoutY="84.0" mnemonicParsing="false" onMouseClicked="#addBtnClicked" prefHeight="24.0" prefWidth="92.0" text="Add" />
+        <Label layoutX="78.0" layoutY="170.0" text="Students of the same age:" />
+        <TextField fx:id="ageTextField" layoutX="236.0" layoutY="166.0" prefHeight="17.0" prefWidth="92.0" promptText="Age" />
+        <Button layoutX="154.0" layoutY="214.0" mnemonicParsing="false" onMouseClicked="#listBtnClicked" prefHeight="25.0" prefWidth="92.0" text="List" />
+        <Slider fx:id="ageSlider" layoutX="96.0" layoutY="37.0" min="10.0" minorTickCount="1" onMouseDragged="#ageSliderHandler" prefHeight="24.0" prefWidth="218.0" showTickMarks="true" value="10.0" />
+        <Label fx:id="ageValueLabel" layoutX="328.0" layoutY="40.0" prefHeight="17.0" prefWidth="24.0" text="10" />
+    </children>
+</AnchorPane>

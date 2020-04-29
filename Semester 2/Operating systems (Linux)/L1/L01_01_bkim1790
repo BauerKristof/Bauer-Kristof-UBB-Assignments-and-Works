@@ -1,0 +1,1053 @@
+1. laborfeladat - 2019
+név:Bauer Kristof
+azonosító:bkim1790 
+
+Alapkatalógusunkban hozzunk létre az mkdir parancs segítségével egy labor1 
+katalógust, majd a cd parancs segítségével lépjünk ebbe a katalógusba. 
+A továbbiakban ebben a katalógusban dolgozzunk, hacsak a feladat szövege 
+nem kér egyebet.
+
+ls 
+- ellenőrizzük, hogy az aktuális katalógus üres:[bkim1790@linux labor1]$ ls .
+ 
+- listázzuk ki a /etc/ katalógus tartalmát:
+[bkim1790@linux labor1]$ ls /etc/
+abrt                       httpd                         polkit-1
+acpi                       idmapd.conf                   popt.d
+adjtime                    ImageMagick                   portreserve
+aliases                    init                          postfix
+
+- listázzuk ki a gyökér katalógus tartalmát részletes információkkal (hosszú 
+  formátum):
+[bkim1790@linux gr511]$ ls -l /
+total 4340
+dr-xr-xr-x   2 root root    4096 2018-10-11 15:10 bin
+dr-xr-xr-x   4 root root    4096 2019-03-01 01:03 boot
+drwxr-xr-x   2 root root    4096 2015-05-29 17:03 cd
+drwxr-xr-x   2 root root    4096 2018-10-09 18:48 cgroup
+drwxr-xr-x  17 root root    3720 2019-03-04 09:46 dev
+  
+
+Megjegyzés: most folytassuk a feladatok megoldását a többi paranccsal, majd az mkdir
+      parancs után térjünk vissza az ls parancs további feladataihoz.
+
+- listázzuk ki a temp1 katalógus tartalmát rekurzívan, és a rejtett állományok 
+  is jelenjenek meg
+bkim1790@bkim1790:~/labor1$ ls temp1 -R -a
+temp1:
+.  ..  d11  d12  f1
+
+temp1/d11:
+.  ..  d111  f11
+
+temp1/d11/d111:
+.  ..
+
+temp1/d12:
+.  ..
+
+- listázzuk ki az aktuális katalógus tartalmát fordított abc sorrendben úgy, 
+  hogy az állományok mérete felhasználóbarát módon jelenjen meg (vagyis blokkok 
+  helyett byte, Kbyte vagy Mbyte-ban számolva)
+bkim1790@bkim1790:~/labor1$ ls -r -l -h -s -k
+total 28K
+4,0K drwxr-xr-x 3 bkim1790 bkim1790 4,0K mar 14 11:15 temp2
+4,0K drwxr-xr-x 4 bkim1790 bkim1790 4,0K mar 14 11:18 temp1
+4,0K -rw-r--r-- 1 bkim1790 bkim1790   96 mar 14 10:48 proba
+4,0K -rw-r--r-- 1 bkim1790 bkim1790   17 mar 14 10:56 pr2
+4,0K -rw-r--r-- 1 bkim1790 bkim1790   32 mar 14 10:57 pr1
+4,0K drwxr-xr-x 3 bkim1790 bkim1790 4,0K mar 14 10:22 pldir1
+4,0K drwxr-xr-x 2 bkim1790 bkim1790 4,0K mar 14 10:21 dir1
+
+
+- listázzuk ki az /usr/ katalógus tartalmát hoszú formátumban, méret szerint 
+  csökkenő sorrendben
+bkim1790@bkim1790:~/labor1$ ls -l -S /usr/
+total 76
+drwxr-xr-x   2 root root 40960 mar 13 13:28 bin
+drwxr-xr-x 245 root root 12288 mar 13 13:28 share
+drwxr-xr-x   2 root root  4096 feb 10 02:14 games
+drwxr-xr-x   6 root root  4096 mar 13 13:14 include
+drwxr-xr-x 127 root root  4096 mar 13 13:17 lib
+drwxr-xr-x  10 root root  4096 feb 10 02:12 local
+drwxr-xr-x   2 root root  4096 mar 13 13:19 sbin
+drwxr-xr-x   6 root root  4096 mar 13 13:18 src
+
+- listázzuk ki az alapkatalógus tartalmát rekurzívan, az utolsó módosítás 
+  dátuma szerinti sorrendben
+bkim1790@bkim1790:~$ ls -R -t
+.:
+Downloads  Desktop    Music     Public     Videos
+labor1     Documents  Pictures  Templates  examples.desktop
+
+./Downloads:
+feladatlap_linux  feladatlap_linux~
+
+./labor1:
+temp1  temp2  pr1  pr2  proba  pldir1  dir1
+
+./labor1/temp1:
+d11  f1  d12
+
+
+cd
+- lépjünk be a gyökér katalógusban levő var/log katalógusba
+[bkim1790@linux ~]$ cd /var/log
+
+- lépjünk innen vissza az alapkatalógusunkba
+[bkim1790@linux log]$ cd ~
+
+- lépjünk az aktuális katalógus szülőkatalógusába
+[bkim1790@linux ~]$ cd ..
+
+pwd
+- irassuk ki az aktuális katalógus nevét
+[bkim1790@linux gr511]$ pwd
+/home/scs/licenta/an1/gr511
+
+tree
+- írassuk ki az alaplatalógusunk szerkezetét, az állományokat is megjelenítve
+[bkim1790@linux gr511]$ tree ~ 
+/home/scs/licenta/an1/gr511/bkim1790
+├── feladatlap_linux
+├── feladatlap_linux~
+├── labor1
+├── linux
+│   ├── feladatlap_linux
+│   └── feladatlap_linux~
+└── mail
+    ├── Drafts
+    └── Sent
+
+3 directories, 6 files
+
+- írassuk ki az alaplatalógusunk szerkezetét, csak a katalógusokat megjelenítve
+[bkim1790@linux gr511]$ tree -d ~
+/home/scs/licenta/an1/gr511/bkim1790
+├── labor1
+├── linux
+└── mail
+
+
+mkdir
+- lépjünk be az alapkatalógusunkban levő labor1 katalógusba:
+[bkim1790@linux gr511]$ cd ~/labor1
+
+- hozzunk létre az aktuális katalógusban egy "dir1" nevű katalógust
+[bkim1790@linux labor1]$ mkdir dir1
+
+- az aktuális katalógusban maradva hozzunk létre a /tmp katalógusban egy 
+  katalógust a saját felhasználónevünkkel
+[bkim1790@linux labor1]$ mkdir /tmp/bkim1790
+
+- hozzuk létre az aktuális katalógusban egy "pldir1" nevű katalógust, abban 
+  legyen egy "pldir2", ez utóbbiban pedig egy "pldir3" katalógus (egyetlen 
+  utasítás segítségével)
+[bkim1790@linux labor1]$ mkdir -p ./pldir1/pldir2/pldir3
+
+- hozzuk létre egyetlen utasítással az aktuális katalógusból kiindulva az 
+  alábbi katalógusszerkezetet:
+            temp1  temp2
+            / \     |
+          d11 d12  d21
+           |        |
+         d111     d211    
+
+bkim1790@bkim1790:~/labor1$ mkdir -p ./{temp1/{d11/d111,d12},temp2/d21/d211}
+
+
+rmdir
+- (a fent megadott katalógusszerkezet temp1 katalógusának szülőkatalógusában 
+  vagyunk). Töröljük a   d111 alkatalógust
+bkim1790@bkim1790:~/labor1$ rmdir temp1/d11/d111
+
+- töröljük egyetlen utasítással a temp2 katalógust és alkatalógusait  
+bkim1790@bkim1790:~/labor1$ rmdir -p temp2/d21/d211
+
+cat
+- hozzunk létre egy "proba" nevű állományt a cat parancs segítségével
+bkim1790@bkim1790:~/labor1$ cat > proba
+ez egy proba allomany
+ami probabol all
+mert ez az allomany a probak allomanya
+proba proba proba
+
+
+- listázzuk ki a "proba" nevű állomány tartalmát
+bkim1790@bkim1790:~/labor1$ cat proba
+ez egy proba allomany
+ami probabol all
+mert ez az allomany a probak allomanya
+proba proba proba
+
+- hozzuk létre a "pr1" és "pr2" állományokat (két cat parancs)
+bkim1790@bkim1790:~/labor1$ cat > pr1
+ez az elso pr1
+bkim1790@bkim1790:~/labor1$ cat > pr2
+ez a masodik pr2
+
+- fűzzük össze a "pr1" és "pr2" állomány tartalmát
+bkim1790@bkim1790:~/labor1$ cat pr2 >> pr1
+
+- listázzuk ki (fűzzük össze) az aktuális katalógusban levő összes állomány 
+  tartalmát (feltételezzük, hogy az aktuális katalógus csak közönséges 
+  állományokat tartalmaz)
+bkim1790@bkim1790:~/labor1$ cat *
+cat: dir1: Is a directory
+cat: pldir1: Is a directory
+ez az elso pr1
+ez a masodik pr2
+ez a masodik pr2
+ez egy proba allomany
+ami probabol all
+mert ez az allomany a probak allomanya
+proba proba proba
+cat: temp1: Is a directory
+
+
+- listázzuk ki a "proba" nevű állomány tartalmát úgy, hogy a sorai sorszámozva 
+  legyenek
+bkim1790@bkim1790:~/labor1$ cat proba -n
+     1	ez egy proba allomany
+     2	ami probabol all
+     3	mert ez az allomany a probak allomanya
+     4	proba proba proba
+
+- az aktuális katalógusban maradva hozzunk létre a cat parancs segítségével 
+  egy-egy állományt a fent megadott katalógusszerkezet temp1, d11 illetve 
+  d211 katalógusában (az állományok neve legyen rendre f1, f11 illetve f211)
+bkim1790@bkim1790:~/labor1$ cat > temp1/f1
+f1  
+bkim1790@bkim1790:~/labor1$ cat > temp1/d11/f11
+f11
+bkim1790@bkim1790:~/labor1$ cat > temp2/d21/d211/f211
+f221
+
+
+more (vagy less)
+- listázzuk ki az "/etc/passwd" nevű állomány tartalmát oldalanként
+bkim1790@bkim1790:~$ more /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+
+- listázzuk ki az "/etc/group" nevű állomány tartalmát oldalanként
+bkim1790@bkim1790:~$ more /etc/group
+root:x:0:
+daemon:x:1:
+bin:x:2:
+sys:x:3:
+adm:x:4:syslog,bkim1790
+
+
+cp
+- másoljuk át az aktuális katalógus "proba" nevű állományát a temp1 katalógus 
+  d11 alkatalógusába 
+bkim1790@bkim1790:~/labor1$ cp proba temp1/d11
+
+- másoljuk át a temp1 katalógus tartalmát rekurzívan az aktuáls katalógus 
+  temp1_copy katalógusába
+bkim1790@bkim1790:~/labor1$ cp -R temp1 temp1_copy
+
+- ismételjük meg az előbbi átmásolást úgy, hogy a program kérdezze meg a 
+  felhasználót minden egyes alkalommal, amikor egy már létező állományt akar 
+  felülírni
+bkim1790@bkim1790:~/labor1$ cp -i -R temp1 temp1_copy
+cp: overwrite 'temp1_copy/temp1/f1'? no
+cp: overwrite 'temp1_copy/temp1/d11/proba'? no
+cp: overwrite 'temp1_copy/temp1/d11/f11'? no
+
+- másoljunk át néhány C programot az aktuális katalógusba  
+bkim1790@bkim1790:~/labor1$ cp dir1/*.c .
+
+mv
+- hozzuk újra létre a korábban letörölt temp2 katalógust és alkatalógusait
+bkim1790@bkim1790:~/labor1$ mkdir -p temp2/d21/d211
+
+- nevezzük át az aktuális katalógusban levő "proba" állományt "pr"-re.
+bkim1790@bkim1790:~/labor1$ mv proba pr
+
+- helyezzük át a temp1 katalógus "f1" állományát az aktuális katalógusba
+bkim1790@bkim1790:~/labor1$ mv temp1/f1 .
+- helyezzük át az aktuális katalógusban levő "f1" állományt a temp2/d2 
+  katalógusba "f1_backup" néven
+bkim1790@bkim1790:~/labor1$ mv f1 temp2/d2/f1_backup
+
+
+rm
+- töröljük az aktuális katalógusban levő "pr1" állományt
+bkim1790@bkim1790:~/labor1$ rm pr1
+
+- töröljük az  aktuális katalógus temp1 katalógusában levő "f1" állományt
+bkim1790@bkim1790:~/labor1$ rm temp1/f1
+
+- töröljük az aktuális katalógusban levő "temp2" katalógus összes állományát
+bkim1790@bkim1790:~/labor1$ rm -r temp2/*
+
+- töröljük az aktuális katalógusban levő "temp1" katalógus tartalmát 
+  rekurzívan, úgy, hogy a program minden egyes művelet előtt kérje a 
+  felhasználó jóváhagyását
+bkim1790@bkim1790:~/labor1$ rm -i -r temp1/*
+rm: descend into directory 'temp1/d11'? yes
+rm: remove regular file 'temp1/d11/proba'? yes
+rm: remove directory 'temp1/d11/d111'? yes
+rm: remove regular file 'temp1/d11/f11'? yes
+rm: remove directory 'temp1/d11'? yes
+rm: remove directory 'temp1/d12'? yes
+
+  
+rename
+- hozzunk létre néhány .pp-vel végződő nevű állományt
+[bkim1790@linux ~]$ cat > valami.pp
+valami 
+[bkim1790@linux ~]$ cat > azami.pp
+falsd
+[bkim1790@linux ~]$ cat > luck.pp
+leki
+
+- nevezzünk át az aktuális katalógusbanban minden .pp végződésű állományt .C 
+  végződésűre  
+[bkim1790@linux ~]$ rename .pp .c *.pp
+
+w
+- listázzuk ki, hogy kik vannak bejelentkezve a rendszerbe és ki mit csinál
+[bkim1790@linux ~]$ w
+ 14:53:19 up 7 days,  5:11, 57 users,  load average: 0,56, 0,37, 0,29
+USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
+lrim1842 pts/1    82.208.133.143   14:39   43.00s  1.52s  1.45s joe
+feladatlap_linux
+crim1798 pts/2    82.208.133.143   14:02    2.00s  0.17s  0.17s -bash
+rmir2602 pts/7    172.30.115.255   13:56    0.00s  0.33s  0.33s -bash
+
+- listázzuk ki a bejelentkezett felhasználókat úgy, hogy a fejléc ne 
+  jelenjen meg
+[bkim1790@linux ~]$ w -h
+lrim1842 pts/1    82.208.133.143   14:39    1:31   1.52s  1.45s joe
+feladatlap_linux
+crim1798 pts/2    82.208.133.143   14:02    6.00s  0.17s  0.17s -bash
+rmir2602 pts/7    172.30.115.255   13:56   39.00s  0.43s  0.10s vim .vimrc
+bsim1787 pts/6    82.208.133.143   14:25    1:15   0.25s  0.18s joe
+feladatlap_linux
+
+- az előbbi kimenet alapján állapítsuk meg, hogy ki "lazsál" a legtöbb ideje
+bradut   pts/14   172.30.106.99    Thu11    4days  1.01s  1.01s -bash
+
+
+who
+- listázzuk ki, hogy kik vannak bejelentkezve
+[bkim1790@linux ~]$ who
+lrim1842 pts/1        2019-03-11 14:39 (82.208.133.143)
+crim1798 pts/2        2019-03-11 14:02 (82.208.133.143)
+rmir2602 pts/7        2019-03-11 13:56 (172.30.115.255)
+
+- listázzuk ki a rendszerben dolgozó felhasználók azonosítóját és hogy hányan 
+  vannak bejelentkezve
+[bkim1790@linux ~]$ who -q
+lrim1842 crim1798 rmir2602 bsim1787 crim1798 scir2607 bradut fhim1811
+[B[Afhim1811 knad0300 maim1846 bradu jgim1824 gzim1817 fdim1814 jjim1825
+jgim1824 ex_306_10 hmim1819 fkim1812 hmim1819 kaim1829 fkim1812 fmim1815
+gzim1817 fkim1812 rmir2602 maim1849 lrim1842 cvie2488 keim1831 gmig0240
+maim1849 ddim1809 ddim1809 keim1831 ggim1816 ex_302_01 ggim1816 ggim1816
+hdim1821 crim1797 hdim1821 jaim1826 tvim1879 bsim1787 gjim1818 gjim1818
+dtim1806 dtim1806 bkim1790 crim1797 dcig0232 bkim1790 knad0300 bmie2482
+# users=56
+
+finger
+- írjunk ki információt a jelenleg bejelentkezett felhasználókról
+[bkim1790@linux ~]$ finger
+Login     Name                   Tty      Idle  Login Time   Office
+Office Phone
+baie2484  Bratu F Andrei         pts/34   1:59  Mar 11 12:36 (172.30.119.68)
+baie2484  Bratu F Andrei         pts/118    45  Mar 11 13:13 (172.30.119.68)
+bkim1790  Bauer S Kristof        pts/108        Mar 11 14:29
+(82.208.133.143)
+bkim1790  Bauer S Kristof        pts/114        Mar 11 14:32
+(82.208.133.143)
+
+- írjuk ki a saját felhasználóra vonatkozó információkat
+[bkim1790@linux ~]$ finger bkim1790
+Login: bkim1790       			Name: Bauer S Kristof
+Directory: /home/scs/licenta/an1/gr511/bkim1790	Shell: /bin/bash
+On since Lu mar 11 14:29 (EET) on pts/108 from 82.208.133.143
+   16 seconds idle
+On since Lu mar 11 14:32 (EET) on pts/114 from 82.208.133.143
+New mail received Lu mar 11 10:03 2019 (EET)
+     Unread since Lu mar 11 08:05 2019 (EET)
+No Plan.
+
+
+- írjuk ki a root felhasználóra vonatkozó információkat rövid formátumban
+[bkim1790@linux ~]$ finger -s root
+Login     Name          Tty      Idle  Login Time   Office     Office Phone
+root      Preacademic   tty1        *  Jun 25  2018
+
+- állapítsuk meg a finger parancs kimenetéből, hogy egy tetszőleges felhasználónak 
+  van-e olvasatlan levele vagy sem.
+[bkim1790@linux ~]$ finger ex_301_20 
+New mail received Lu apr  9 11:42 2018 (EEST)
+     Unread since Lu apr  9 10:43 2018 (EEST)
+
+
+last
+- listázzuk a legutóbbi belépéseket (a wtmp logfájl adatai alapján)
+[bkim1790@linux ~]$ last
+cgir2476 pts/126      172.30.113.185   Mon Mar 11 15:25   still logged in   
+taim1878 pts/121      172.30.118.163   Mon Mar 11 15:23   still logged in   
+fdim1814 pts/113      82.208.133.143   Mon Mar 11 15:22   still logged in   
+mhim1848 pts/104      82.208.133.143   Mon Mar 11 15:21   still logged in   
+
+- listázzuk a saját felhasználó legutóbbi belépéseit 
+[bkim1790@linux ~]$ last bkim1790
+bkim1790 pts/114      82.208.133.143   Mon Mar 11 14:32   still logged in   
+bkim1790 pts/108      82.208.133.143   Mon Mar 11 14:29   still logged in   
+bkim1790 pts/46       82.208.133.143   Mon Mar  4 14:44 - 15:36  (00:52)    
+bkim1790 pts/47       82.208.133.143   Mon Mar  4 14:44 - 15:36  (00:52)    
+
+- listázzuk a root felhasználó legutóbbi 3 belépését
+[bkim1790@linux ~]$ last -n 3 root
+
+wtmp begins Wed Feb  6 21:24:28 2019
+
+
+date
+- listázzuk ki a mai dátumot, órát, napot, stb. alapértelmezett formátumban
+bkim1790@bkim1790:~/Downloads$ date
+miercuri 13 martie 2019, 13:30:47 +0200
+
+- írassuk ki csak a dátumot mm/dd/yy alakban
+bkim1790@bkim1790:~/Downloads$ date +%D
+03/13/19
+
+- írassuk ki, hogy a hónap hányadik napja van ma
+bkim1790@bkim1790:~/Downloads$ date +%d
+13
+
+
+- írassuk ki a hónapot és a napot
+bkim1790@bkim1790:~/Downloads$ date +%B"/"%A
+martie/miercuri
+
+
+- írassuk ki az órát, percet (hh:mm) és az időzónát tab-al elválasztva
+bkim1790@bkim1790:~/Downloads$ date +%R%t%:z
+09:48	+02:00
+
+
+A következőkben mindig hozzuk létre a szükséges állományokat a feladatnak megfelelő szerkezettel és tartalommal.
+
+sort 
+- rendezzük a "nevsor" állomány sorait abc sorrendbe
+bkim1790@bkim1790:~/labor1$ sort nevsor
+Bauer Kristof
+Bauer Kristof
+Kiss Janos
+Kulcsos Edina
+Mike David
+Mike David
+Nagy Ilona
+
+- rendezzük a "nevsor" állomány sorait fordított abc sorrendbe. Az eredmény az  
+  "eredmeny" állományba kerüljön
+bkim1790@bkim1790:~/labor1$ sort -r nevsor > eredmeny
+
+- rendezzük a "proba" állomány sorait abc sorrendben úgy, hogy az ismétlődő sorok 
+  csak egyszer szerepeljenek
+bkim1790@bkim1790:~/labor1$ sort -u nevsor
+Bauer Kristof
+Kiss Janos
+Kulcsos Edina
+Mike David
+Nagy Ilona
+
+- a "pontok" állomány sorainak formátuma: vezetéknév keresztnév pontszám
+  ahol a pontszám egy 0 és 200 közötti egész szám rendezzük az állomány sorait a 
+  pontszámok csökkenő sorrendjében
+bkim1790@bkim1790:~/labor1$ sort -r -n -k3 pontok
+Ablak Ferenc 136
+Nagy Miklos 125
+Kerekes Nandi 78
+Kis Peter 13
+
+- ellenőrizzük, hogy a "névsor" állomány sorai abc sorrendben vannak-e
+bkim1790@bkim1790:~/labor1$ sort -c nevsor
+sort: nevsor:3: disorder: Bauer Kristof
+
+- a "szamok" allomány sorai ":"-al elválasztott számokat tartalmaznak (soronként 
+  legalább három szám). Rendezzük az állományt a második mező számai szerint 
+  növekvő sorrendbe
+bkim1790@bkim1790:~/labor1$ sort -n -k2 -t ':' szamok
+21:1:34
+1:2:3
+4:156:31
+41:213:41
+
+- "f1" és "f2" két rendezett állomány. Fésüljük össze a két állomány tartalmát
+bkim1790@bkim1790:~/labor1$ sort -m f1 f2
+alma
+banan
+cica
+delfin
+etelka
+fa
+
+
+comm
+- hasonlítsuk össze a "pr1" és "pr2" rendezett (!) állományok tartalmát soronként
+bkim1790@bkim1790:~/labor1$ comm pr1 pr2
+	ablak
+		alma
+		banan
+	barack
+cica
+	hertz
+	inka
+
+- csak azokat a sorokat írassuk ki "pr1" és "pr2"-ből, amelyek nem közösek
+bkim1790@bkim1790:~/labor1$ comm -3 pr1 pr2
+	ablak
+	barack
+cica
+	hertz
+	inka
+
+
+- írassuk ki a "pr1" és "pr2" rendezett állományok azon sorait, amelyek mindkettőben 
+  szerepelnek
+bkim1790@bkim1790:~/labor1$ comm -1 -2 pr1 pr2
+alma
+banan
+
+
+diff
+- hasonlítsuk össze az aktuális katalógusban levő "pr1" és a szülőkatalógusban levő 
+  "pr1" állományok tartalmát  
+bkim1790@bkim1790:~/labor1$ diff pr1 ~/pr1
+1,3c1,2
+< alma
+< banan
+< cica
+---
+> ez a pr1
+> nagyon pr1
+
+
+- állapítsuk meg a "pr1" illetve "pr2" állományról, hogy azonosak-e
+  a "p1" állomány tartalma: 
+
+    if  date|grep "Mon"
+    echo szia
+    fi
+
+  a "p2" állományé pedig:
+
+    if :
+    then 
+    echo szia
+    fi
+
+  Hasonlítsuk össze a két állomány tartalmát és röviden értelmezzük az eredményt.
+bkim1790@bkim1790:~/labor1$ diff -s pr1 pr2
+1c1,2
+< if date | grep "Mon"
+---
+> if:
+> then
+
+Ertelmezes:A pr1 allomany elso sorat meg kell valtoztatni a pr2  allomany elso ket sorara.
+
+head
+- listázzuk ki a "proba" állomány első tíz sorát
+bkim1790@bkim1790:~/labor1$ head proba
+fas
+fsaf
+sdksalf
+njfsajnzxm
+lasfkas
+kasfoqwpe
+ko2132k1
+afsklasld
+fk0213
+okfsao
+
+
+- listázzuk ki a "proba" állomány első 5 sorát
+bkim1790@bkim1790:~/labor1$ head -n5 proba
+fas
+fsaf
+sdksalf
+njfsajnzxm
+lasfkas
+
+- listázzuk ki a "proba" állomány első 20 karakterét
+fbkim1790@bkim1790:~/labor1$ head -c 20 proba
+fas
+fsaf
+sdksalf
+nj
+- listázzuk ki a "proba" állomány sorait az utolsó 2 kivételével 
+bkim1790@bkim1790:~/labor1$ head -n -2 proba
+fas
+fsaf
+sdksalf
+njfsajnzxm
+lasfkas
+kasfoqwpe
+ko2132k1
+afsklasld
+fk0213
+okfsao
+kskadk
+nfnsaj
+jasnjndjas
+
+tail
+- listázzuk ki a "pr1" és "pr2" állományok utolsó tíz sorát 
+bkim1790@bkim1790:~/labor1$ tail pr1 pr2
+==> pr1 <==
+if date | grep "Mon"
+echo szia
+fi
+
+==> pr2 <==
+if:
+then
+echo szia
+fi
+
+- listázzuk ki az "/etc/passwd" állomány utolsó 5 sorát
+bkim1790@bkim1790:~/labor1$ tail -n 5 /etc/passwd
+hplip:x:118:7:HPLIP system user,,,:/var/run/hplip:/bin/false
+geoclue:x:119:124::/var/lib/geoclue:/usr/sbin/nologin
+gnome-initial-setup:x:120:65534::/run/gnome-initial-setup/:/bin/false
+gdm:x:121:125:Gnome Display Manager:/var/lib/gdm3:/bin/false
+bkim1790:x:1000:1000:bkim1790,,,:/home/bkim1790:/bin/bash
+
+- listázzuk ki az aktuális katalógus szülőkatalógusában levő "p1" állomány utolsó 
+  10 byte-ját
+bkim1790@bkim1790:~/labor1$ tail -c 10 ../p1
+r
+sok sor
+
+
+
+cut
+- írassuk ki a "proba" állomány minden sorának 5. és 6. karakterét
+bkim1790@bkim1790:~/labor1$ cut -c 5-6 proba
+
+
+al
+aj
+ka
+oq
+32
+la
+13
+ao
+dk
+aj
+jn
+13
+
+- hozzunk létre egy "proba1" állományt, amely soraiban a mezőket a TAB karakter 
+  válassza el, majd írassuk ki minden sorból az 5. mezőt
+bkim1790@bkim1790:~/labor1$ cut -f5 proba1
+repulo
+szilva
+kicsi
+
+- írassuk ki a "/etc/passwd" állományból a felhasználók nevét (5. mező, 
+  mezőelválasztó a ":" karakter)
+bkim1790@bkim1790:~/labor1$ cut -f 5 -d ':' /etc/passwd
+root
+daemon
+bin
+sys
+sync
+games
+man
+lp
+
+uniq
+- egy megfelelően létrehozott "proba" állományból töröljük ki az egymásután 
+  ismétlődő sorokat
+bkim1790@bkim1790:~/labor1$ uniq proba
+ez egy ismetlodo sor
+nagyon ismetlodik
+ez egy ismetlodo sor
+ablak kakas
+lakat fakanal
+
+- egy megfelelően létrehozott "proba" állományból csak az egymásután többször 
+  ismétlődő sorokat írassuk ki
+bkim1790@bkim1790:~/labor1$ uniq -d proba
+ez egy ismetlodo sor
+lakat fakanal
+
+- egy megfelelően létrehozott "proba" állományból írassuk ki mindcen sor elé, hogy 
+  egymás után hányszor szerepel
+bkim1790@bkim1790:~/labor1$ uniq -c proba
+      1 ez egy ismetlodo sor
+      1 nagyon ismetlodik
+      2 ez egy ismetlodo sor
+      1 ablak kakas
+      2 lakat fakanal
+      1 
+
+
+wc
+- írassuk ki a "proba" nevű állomány sorainak, szavainak, illetve karaktereinek 
+  számát
+bkim1790@bkim1790:~/labor1$ wc proba
+  8  20 122 proba
+
+- írassuk ki az "/etc/passwd" állomány sorainak számát
+bkim1790@bkim1790:~/labor1$ wc -l /etc/passwd
+41 /etc/passwd
+
+- írassuk ki a "proba" nevű állomány leghosszabb sorának számát
+bkim1790@bkim1790:~/labor1$ wc -L proba
+20 proba
+
+- írassuk ki a "proba" nevű állomány szavainak számát
+bkim1790@bkim1790:~/labor1$ wc -w proba
+20 proba
+
+- írassuk ki az alapkatalógusban levő "p1" nevű állomány karaktereinek számát
+bkim1790@bkim1790:~/labor1$ wc -m ~/p1
+134 /home/bkim1790/p1
+
+
+ln
+- készítsünk szimbolikus linket, melynek neve "info" és az "/etc/passwd" állományra 
+  mutat
+bkim1790@bkim1790:~/labor1$ ln -s /etc/passwd info
+- hozzunk létre hard link-et a "p1" és "p2" állományra a tmp katalógusban
+bkim1790@bkim1790:~/labor1$ ln p1 p2 tmp
+
+
+chmod
+- adjunk végrehajtásjogot a tulajdonosnak a "proba.sh" állományra
+bkim1790@bkim1790:~/labor1$ chmod u+x proba.sh
+
+- vegyük el az olvasásjogot a csoport tagjaitól és a többi felhasználótól a 
+  "proba.sh" állományra 
+bkim1790@bkim1790:~/labor1$ chmod go-r proba.sh
+
+- a csoport tagjainak jogait változtassuk meg úgy, hogy olvasás- és írás-joguk legyen
+  a "proba.sh" állományra
+bkim1790@bkim1790:~/labor1$ chmod g+rw proba.sh
+
+- állítsuk be a "proba.sh" állomány jogait  "rwxr-xr--"-re oktális számként adva meg 
+  a jogokat
+bkim1790@bkim1790:~/labor1$ chmod 754 proba.sh
+
+- adjunk írasjogot a próba állományra azon felhasználóknak, akik nem tartoznak az
+  állomány csoportjába  
+bkim1790@bkim1790:~/labor1$ chmod o+w proba.sh
+
+- adjunk végrehajtási jogot a próba állományt tartalmazó katalógusra és a benne levő
+  állományokra rekurzívan, a csoportjában levő felhasználóknak
+bkim1790@bkim1790:~/labor1$ chmod -R g+x .
+
+find
+- listázzuk ki rekurzívan az aktuális katalógus összes állományát
+bkim1790@bkim1790:~/labor1$ find .
+.
+./pr1
+./masodik.c
+./temp1
+./proba
+./p1
+./f2
+./pldir1
+./pldir1/pldir2
+./pldir1/pldir2/pldir3
+./pr2
+./temp1_copy
+
+- keressük meg a "dir" katalógusban és alkatalógusaiban levő összes közönséges 
+  állományt
+bkim1790@bkim1790:~/labor1$ find dir/* -type f
+dir/file3
+dir/file4
+dir/probadir/file2
+dir/probadir/masikprobadir/file1
+
+- keressük meg a "/tmp" katalógusban és alkatalógusaiban szereplő azon 
+  állományokat, melyeknek csoport azonosítója ugyanaz, mint a mienk
+[bkim1790@linux ~]$ find /tmp -group student
+/tmp/krb5cc_37589_TRnRrR
+/tmp/krb5cc_37250_3w0Dsz
+/tmp/krb5cc_41761_tPe7sA
+/tmp/krb5cc_41678_OAUOxK
+/tmp/krb5cc_41670_Y6guil
+/tmp/krb5cc_37629_JBuUt8
+/tmp/krb5cc_40577_mWhG6M
+/tmp/krb5cc_38714_3BovRd
+/tmp/krb5cc_37905_0PSowO
+
+
+- listázzuk ki rekurzívan az aktuális katalógus összes olyan állományát, melyre 
+  mindenkinek van minden (írás/olvasás/végrehajtás) joga
+bkim1790@bkim1790:~/labor1$ find ./* -perm 777
+./info
+./pontok
+./szamok
+
+- az alapkatalógusunkban és ennek alkatalógusaiban szereplő azon állományokat 
+  listázzuk ki, melyeknek mérete 100kbyte-n'l nagyobb
+bkim1790@bkim1790:~/labor1$ find ~ -size +100k
+/home/bkim1790/Pictures/Screenshot from 2019-03-14 13-44-06.png
+/home/bkim1790/Pictures/Screenshot from 2019-03-14 16-40-05.png
+/home/bkim1790/Pictures/Screenshot from 2019-03-14 13-43-52.png
+/home/bkim1790/Pictures/Screenshot from 2019-03-14 13-45-26.png
+/home/bkim1790/.local/share/app-info/xmls/extensions-web.xml
+
+- listázzuk ki rekurzívan az aktuális katalógus összes txt-vel végződő állományát 
+bkim1790@bkim1790:~/labor1$ find ./*.txt
+./elso.txt
+./masodik.txt
+
+
+- listázzuk ki rekurzívan az alapkatalógus összes olyan állományát, mely kevesebb 
+  mint 10 napja voltak utoljára módosítva
+bkim1790@bkim1790:~/labor1$ find ~ -atime -10 
+/home/bkim1790
+/home/bkim1790/pr1
+/home/bkim1790/.bashrc
+/home/bkim1790/.ICEauthority
+/home/bkim1790/Downloads
+/home/bkim1790/Downloads/feladatlap_linux
+
+- listázzuk ki az aktuális katalógus üres állományait. A keresés max. 1 szint 
+  mélységig történjen.
+bkim1790@bkim1790:~/labor1$ find . -maxdepth 1 -empty
+./temp1
+./temp2
+
+- listázzuk ki rekurzívan az aktuális katalógus összes 10kbyte-nál kisebb  
+  állományának teljes nevét és méretét (byte-okban)
+bkim1790@bkim1790:~/labor1$ find . -size -10k -printf '%s\t%f\n'
+4096	.
+34	pr1
+53	masodik.c
+4096	temp1
+4096	dir
+7	file3
+6	file4
+4096	probadir
+11	file2
+4096	masikprobadir
+15	file1
+122	proba
+5	p1
+
+file
+- írassuk ki az aktuális katalógusban levő "proba" állomány típusát
+bkim1790@bkim1790:~/labor1$ file ./proba
+./proba: ASCII text
+- írassuk ki az /bin/ls állomány típusát 
+bkim1790@bkim1790:~/labor1$ file /bin/ls
+/bin/ls: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=9567f9a28e66f4d7ec4baf31cfbf68d0410f0ae6, stripped
+
+- írassuk ki egy .jpg kiterjesztésű képfile típusát
+bkim1790@bkim1790:~/labor1$ file ./Moon.jpg
+./Moon.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 96x96, segment length 16, baseline, precision 8, 800x600, frames 3
+
+- írassuk ki egy általunk létrehozott szimbolikus link típusát rövid formátumban 
+  (az állomány neve nélkül)
+bkim1790@bkim1790:~/labor1$ file -s info
+info: symbolic link to /etc/passwd
+
+- írassuk ki a /tmp katalógus összes állományának típusát
+bkim1790@bkim1790:~/labor1$ file /tmp *
+/tmp:        sticky, directory
+dir:         directory
+dir1:        directory
+elso.c:      C source, ASCII text
+elso.txt:    ASCII text
+
+du
+- írassuk ki az aktuális katalógus és alkatalógusai méretét 
+bkim1790@bkim1790:~/labor1$ du .
+4	./temp1
+8	./dir/probadir/masikprobadir
+16	./dir/probadir
+28	./dir
+4	./pldir1/pldir2/pldir3
+
+- írassuk ki a próba nevű állományt tartalmazó katalógus, és a benne levő 
+  állományok méretét, valamint az összméretet. 
+bkim1790@bkim1790:~/labor1$ du --exclude-from proba -c
+ 
+4	./temp1
+8	./dir/probadir/masikprobadir
+16	./dir/probadir
+28	./dir
+4	./pldir1/pldir2/pldir3
+8	./pldir1/pldir2
+12	./pldir1
+4	./temp1_copy/temp1/d12
+4	./temp1_copy/temp1/d11/d111
+16	./temp1_copy/temp1/d11
+28	./temp1_copy/temp1
+4	./temp1_copy/d12
+4	./temp1_copy/d11/d111
+16	./temp1_copy/d11
+56	./temp1_copy
+4	./temp2
+8	./tmp
+12	./dir1
+340	.
+340	total
+
+- írassuk ki egy minimum két állományt tartalmazó  katalógusunkban szereplő 
+  állományok méretét különböző egységekben (Kilobit, Kilobyte, Megabit, Megabyte)
+bkim1790@bkim1790:~/labor1$ du . -BKB
+5kB	./temp1
+9kB	./dir/probadir/masikprobadir
+17kB	./dir/probadir
+
+
+bkim1790@bkim1790:~/labor1$ du . -BK
+4K	./temp1
+8K	./dir/probadir/masikprobadir
+16K	./dir/probadir
+
+bkim1790@bkim1790:~/labor1$ du . -BMB
+1MB	./temp1
+1MB	./dir/probadir/masikprobadir
+1MB	./dir/probadir
+
+
+bkim1790@bkim1790:~/labor1$ du . -BM
+1M	./temp1
+1M	./dir/probadir/masikprobadir
+1M	./dir/probadir
+
+
+- írassuk ki a felhasználói katalógusban szereplő állományok méretét és ezek utolsó 
+  módosítási dátumát 
+bkim1790@bkim1790:~/labor1$ du ~ --time
+64	2019-03-15 09:52	/home/bkim1790/Downloads
+4	2019-03-14 12:37	/home/bkim1790/labor1/temp1
+8	2019-03-15 10:06	/home/bkim1790/labor1/dir/probadir/masikprobadir
+16	2019-03-15 10:06	/home/bkim1790/labor1/dir/probadir
+
+
+df
+- írassuk ki az állományrendszerek lemezhasználati adatait 
+bkim1790@bkim1790:~/labor1$ df
+Filesystem     1K-blocks    Used Available Use% Mounted on
+udev              989256       0    989256   0% /dev
+tmpfs             204096    1552    202544   1% /run
+/dev/sda1       10253588 5892980   3820040  61% /
+
+- írassuk ki az állományrendszerek lemezhasználati adatait "human readable"    	
+  formátumban 
+bkim1790@bkim1790:~/labor1$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            967M     0  967M   0% /dev
+tmpfs           200M  1,6M  198M   1% /run
+/dev/sda1       9,8G  5,7G  3,7G  61% /
+tmpfs           997M   25M  973M   3% /dev/shm
+
+- írassuk ki az állományrendszerek i-nod táblára vonatkozó adatait valamint ezek 
+  típusát 
+bkim1790@bkim1790:~/labor1$ df -i -T
+Filesystem     Type     Inodes  IUsed  IFree IUse% Mounted on
+udev           devtmpfs 247314    443 246871    1% /dev
+tmpfs          tmpfs    255116    812 254304    1% /run
+/dev/sda1      ext4     655360 182146 473214   28% /
+tmpfs          tmpfs    255116     59 255057    1% /dev/shm
+
+
+- írassuk ki az összes állományrendszer lemezhasználati adatait Kilobyte, valamint 
+  Megabyteban 
+bkim1790@bkim1790:~/labor1$ df -BK
+Filesystem     1K-blocks     Used Available Use% Mounted on
+udev             989256K       0K   989256K   0% /dev
+tmpfs            204096K    1332K   202764K   1% /run
+/dev/sda1      10253588K 5939044K  3773976K  62% /
+tmpfs           1020464K   47116K   973348K   5% /dev/shm
+tmpfs              5120K       4K     5116K   1% /run/lock
+tmpfs           1020464K       0K  1020464K   0% /sys/fs/cgroup
+
+bkim1790@bkim1790:~/labor1$ df -BM
+Filesystem     1M-blocks  Used Available Use% Mounted on
+udev                967M    0M      967M   0% /dev
+tmpfs               200M    2M      199M   1% /run
+/dev/sda1         10014M 5800M     3686M  62% /
+tmpfs               997M   91M      907M  10% /dev/shm
+tmpfs                 5M    1M        5M   1% /run/lock
+
+  
+ps
+- listázzuk az aktív terminálhoz tartozó folyamatokat és ezek állapotát. 
+[bkim1790@linux ~]$ ps
+  PID TTY          TIME CMD
+ 1538 pts/114  00:00:00 bash
+11277 pts/114  00:00:00 ps
+
+- listázzuk ki a rendszerben futó összes folyamatot (más felhasznalókét is), és 
+  ezek állapotát  
+[bkim1790@linux ~]$ ps -e
+  PID TTY          TIME CMD
+    1 ?        00:00:06 init
+    2 ?        00:00:00 kthreadd
+    3 ?        00:00:01 migration/0
+    4 ?        00:00:00 ksoftirqd/0
+    5 ?        00:00:00 stopper/0
+    6 ?        00:00:00 watchdog/0
+
+
+- listázzuk a saját felhasználónkhoz tartozó aktív folyamatokat 
+[bkim1790@linux ~]$ ps U bkim1790
+  PID TTY      STAT   TIME COMMAND
+ 1536 ?        S      0:00 sshd: bkim1790@pts/114
+ 1538 pts/114  Ss     0:00 -bash
+ 9450 pts/108  S+     0:00 joe feladatlap_linux
+16725 pts/114  R+     0:00 ps U bkim1790
+65407 ?        S      0:01 sshd: bkim1790@pts/108
+65408 pts/108  Ss     0:00 -bash
+
+
+- listázzuk a csoportunkhoz tartozó folyamatokat hosszú formátumban 
+[bkim1790@linux ~]$ ps -G 600 -l
+F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+4 S 42347   665  2709  0  80   0 -  4607 ep_pol ?        00:00:00 imap
+4 S 42347   675  2709  0  80   0 -  4572 ep_pol ?        00:00:00 imap
+5 S 41615   888 65440  0  80   0 - 26078 poll_s ?        00:00:01 sshd
+0 S 41615   889   888  0  80   0 - 27152 n_tty_ pts/112  00:00:01 bash
+
+
+bg 
+- indítsunk el egy folyamatot, majd állítsuk le ctrl-z billentyűkombinációval.  
+  Folytassuk a folyamat futtatását, ezúttal a háttérben
+bkim1790@bkim1790:~/labor1$ bg
+[1]+ cat > valami &
+
+fg
+- kérdezzük le az aktív folyamatok listáját, majd hozzuk előtérbe a háttérben futó 
+  folyamatokat. 
+bkim1790@bkim1790:~/labor1$ fg
+cat > valami
+
+ 
+kill 
+- listázzuk az összes kill paranccsal küldhető jel megnevezését és sorszámát
+bkim1790@bkim1790:~/labor1$ kill -l
+ 1) SIGHUP	 2) SIGINT	 3) SIGQUIT	 4) SIGILL	 5) SIGTRAP
+ 6) SIGABRT	 7) SIGBUS	 8) SIGFPE	 9) SIGKILL	10) SIGUSR1
+11) SIGSEGV	12) SIGUSR2	13) SIGPIPE	14) SIGALRM	15) SIGTERM
+16) SIGSTKFLT	17) SIGCHLD	18) SIGCONT	19) SIGSTOP	20) SIGTSTP
+
+- állítsuk le az összes leállítható folyamat működését 
+bkim1790@bkim1790:~/labor1$ kill -9 -1
+
+- állítsuk le egy aktív folyamat működését  PID alapján SIGTERM jelezés küldésével 
+[bkim1790@linux ~]$ kill -s SIGTERM 20145
+

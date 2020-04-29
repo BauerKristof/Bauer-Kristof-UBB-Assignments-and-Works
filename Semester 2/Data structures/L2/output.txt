@@ -1,0 +1,12 @@
+Egyedi latogatok szama= 2069
+A rendszeres felhasznalok
+IP Cim= 24.121.234.114 Hanyszor=54
+IP Cim= 205.250.94.166 Hanyszor=198
+IP Cim= 50.122.207.130 Hanyszor=120
+IP Cim= 46.196.98.91 Hanyszor=91
+IP Cim= 121.29.117.191 Hanyszor=332
+IP Cim= 11.221.44.205 Hanyszor=91
+IP Cim= 108.136.207.38 Hanyszor=650
+IP Cim= 105.131.128.186 Hanyszor=74
+IP Cim= 189.242.182.168 Hanyszor=65
+IP Cim= 88.11.42.245 Hanyszor=216
