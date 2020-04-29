@@ -1,0 +1,2 @@
+This folder contains my projects source codes which I've done in Android Studio only for personal use and only for fun: when I was in high school and we've learned for the national exam, I wrote the Matek Trivia App to memorize better the trigonometrical equations. The Vocabular app was written, when I had to learn for the Cambridge Exam, and the app called Mesenger was written when I got penalized not having bus ticket.
+These projects are quite old tho.
