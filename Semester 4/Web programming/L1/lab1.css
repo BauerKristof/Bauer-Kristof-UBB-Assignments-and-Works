@@ -1,0 +1,109 @@
+body {
+    background-image: url("background.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+} /*hatterkep beallitasa */
+
+h1,h2 {
+    font-weight: bold;
+    color: rgb(27, 165, 108);
+    font-family: "Sans-Serif";
+    text-decoration: underline;
+}
+
+ol.redlist{
+  list-style-type: upper-roman;
+  color:red
+
+}
+
+ol.greenlist{
+  list-style-type: lower-greek;
+  color:green
+}
+
+.altalanos{
+  font-size: 16px;
+  font-weight: bolder;
+  font-style: italic;
+  text-align: center;
+  text-decoration: wavy;
+}
+
+section h2{
+  color:blue;
+  font-size: x-large;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+a:link {
+  color: #FF0000;
+  font-style: normal;
+}
+
+a:visited {
+  color: #00FF00;
+  font-style: italic;
+}
+
+a:hover {
+  color: #FF00FF;
+  font-style: oblique;
+}
+
+a:active {
+  color: #0000FF;
+  font-style: initial;
+}
+
+p.mix{
+  border-style: solid;
+  border-width: thick;
+  border-left-color: #00FF00;
+  border-top-color: #0000FF;
+  border-right-color: #FF00FF;
+  border-bottom-color: #FF0000;
+}
+
+table { /* 2.8 Deﬁniáljukatáblázateseténafejlécnekilletveacelláknakastílusát*/
+  border: 3px solid blueviolet;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:large;
+  background-color: orange;
+  width: 100%;
+}
+
+th{ /* 2.8 Deﬁniáljukatáblázateseténafejlécnekilletveacelláknakastílusát*/
+  border: 5px solid purple
+}
+
+td{ /* 2.8 Deﬁniáljukatáblázateseténafejlécnekilletveacelláknakastílusát*/
+  border: 1px solid red;
+  font-size: small;
+  background-color: palegoldenrod;
+  width: 100%;
+
+}
+
+img.egymasmelle{
+  float: left;
+}
+
+.rectangle {
+  height: 80px;
+  width: 400px;
+  background-color: orange;
+}
+
+.image-txt-container {
+  display:flex;
+  align-items:center;
+  flex-direction: row;
+}
+
+@media only screen and (max-width:400px) {
+  table,th,td {
+    display: none;
+  } 
+}

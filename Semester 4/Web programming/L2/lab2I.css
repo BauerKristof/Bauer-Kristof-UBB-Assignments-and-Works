@@ -1,0 +1,14 @@
+.normalStateMsg{
+    visibility: hidden;
+    opacity: 0.0;
+    color: black;
+}
+
+.errorStateMsg{
+    visibility: visible;
+    opacity: 1.0;
+    color:red;
+    transition: opacity 1s;
+    transition-duration: 500ms;
+    transition-delay: 50ms;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="./lab2I.css" rel="stylesheet" type="text/css">
+    <title>Lab2 HTML</title>
+    <meta charset="utf-8" />
+    <script src="lab2I.js"></script>
+  </head>
+  
+  
+  <body  onload="setFooter()">
+    <h1>Regisztralas</h1>
+ 
+ 
+      <form>
+        <div>
+          <label for="userName">Felhasznalonev:</label>
+          <input type="text" id="userName" pattern="[A-Z][a-z]+ [A-Z][a-z]+">
+        </div>
+
+        <div> 
+          <label for="birthDate">Szuletesi Datum:</label>
+          <input type="date" id="birthDate">
+        </div>
+
+        <div> 
+          <label for="emailAdress">Emailcime:</label>
+          <input type="email" id="emailAdress" onblur="validateEmail(this.value)">
+          <p id="errorEmailMsg" class="normalStateMsg">Hibas EmailCim</p>
+        </div>
+        
+        <div> 
+          <label for="favWeb">Kedvenc weboldalad:</label>
+          <input type="text" id="favWeb" onblur="validateWeb(this.value)">
+          <p id="errorWebMsg" class="normalStateMsg">Hibas Weboldal</p>
+        </div>
+
+        <div>
+          <button type="button" id="validateButton" onclick="checkValid()">Validate</button>
+          <button type="submit" id="submitButton" disabled>Submit</button>
+        </div>
+        
+        <div>
+        <p id="validateMessage">Kattints a validalas gombra eloszor, hogy submittolshass</p>
+        </div>
+      </form>
+
+    <footer>
+       <p id="modifyFooter">Utolso modositas datuma: N/A</p>
+    </footer>
+
+  </body>
+</html>
