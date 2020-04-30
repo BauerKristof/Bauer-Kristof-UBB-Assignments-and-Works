@@ -1,5 +1,6 @@
 ## Matek Trivia
-This simple application was written when I was fined because I didn't have a bus ticket. 
+This was a high school project. When I studied trigonometrical equations for the national exam helped me a lot.
   
  ### Usage
- We type a bus line and it generates a seemingly veritable bus ticket. If you click on the info icon on the upper right side there is a hidden menu where are some advices about which two bus lines you should make a bus ticket to.
+The program generates an equation and you have to give it the correct asnwer. If it's not correct the program will show you the answer.
+For pictures and further information read the documentation file.
