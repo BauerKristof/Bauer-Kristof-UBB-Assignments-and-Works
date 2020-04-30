@@ -10,3 +10,5 @@ This simple application was written when I was fined because I didn't have bus t
 * If you click on the info icon on the upper right side there is a hidden menu where are some advices about which two bus lines you should make a bus ticket to.
 
 <img src="https://i.imgur.com/gLLNNbO.jpg" width="350">
+
+This is only a test project, use it for your own responsibility! 
