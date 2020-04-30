@@ -1,2 +1,1 @@
-This was a high school project to practice for the national exam. 
-It's very simple: you got randomly a trigonometrical equation and you have to write down the correct form, if it's not correct you will get the right form.
+#Matek Trivia
