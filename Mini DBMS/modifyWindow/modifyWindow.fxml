@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modifyWindow.Controller">
+   <children>
+      <Label layoutX="82.0" layoutY="22.0" text="Select Database" />
+      <VBox layoutX="40.0" layoutY="49.0" prefHeight="90.0" prefWidth="199.0">
+         <children>
+            <ListView fx:id="listofDB" onMouseClicked="#showTables" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <Separator layoutX="-4.0" layoutY="174.0" prefHeight="18.0" prefWidth="714.0" />
+      <Separator layoutX="297.0" layoutY="-17.0" orientation="VERTICAL" prefHeight="430.0" prefWidth="6.0" />
+      <Label layoutX="454.0" layoutY="22.0" text="Select Table" />
+      <VBox layoutX="386.0" layoutY="49.0" prefHeight="90.0" prefWidth="199.0" AnchorPane.leftAnchor="386.0">
+         <children>
+            <ListView fx:id="listofTables" onMouseClicked="#showFields" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+      <Button fx:id="dropDBButton" layoutX="166.0" layoutY="148.0" mnemonicParsing="false" onAction="#dropDatabase" text="Drop Database" />
+      <Button fx:id="dropTableButton" layoutX="518.0" layoutY="148.0" mnemonicParsing="false" onAction="#dropTable" text="Drop Table" />
+      <Button fx:id="mainMenuButton" layoutX="262.0" layoutY="357.0" mnemonicParsing="false" onAction="#backToMain" text="Main Menu" />
+      <VBox layoutX="18.0" layoutY="224.0" prefHeight="115.0" prefWidth="258.0">
+         <children>
+            <ListView fx:id="listOfFields" prefHeight="209.0" prefWidth="193.0" />
+         </children>
+      </VBox>
+      <Label layoutX="107.0" layoutY="200.0" text="The table fields" />
+      <Label layoutX="307.0" layoutY="200.0" text="Type the new field name" />
+      <TextField fx:id="fieldName" layoutX="306.0" layoutY="224.0" prefHeight="26.0" prefWidth="103.0" promptText="Field Name" />
+      <VBox layoutX="307.0" layoutY="259.0" prefHeight="79.0" prefWidth="103.0">
+         <children>
+            <ListView fx:id="fieldnameTypesList" prefHeight="81.0" prefWidth="87.0" />
+         </children>
+      </VBox>
+      <Button fx:id="addFieldButton" layoutX="470.0" layoutY="358.0" mnemonicParsing="false" onAction="#addNewField" text="Add Field" />
+      <Button fx:id="removeFieldButton" layoutX="92.0" layoutY="357.0" mnemonicParsing="false" onAction="#removeField" prefHeight="26.0" prefWidth="95.0" text="Remove Field" />
+      <Button layoutX="37.0" layoutY="148.0" mnemonicParsing="false" onAction="#createDatabaseTransfer" text="Create Database" />
+      <Button fx:id="createTabelButton" layoutX="368.0" layoutY="148.0" mnemonicParsing="false" onAction="#createTabelTransfer" text="Create Tabel" />
+      <Label layoutX="432.0" layoutY="224.0" text="Key Restriction (Additional)" />
+      <VBox layoutX="439.0" layoutY="246.0" prefHeight="79.0" prefWidth="130.0">
+         <children>
+            <ListView fx:id="keySelectList" onMouseClicked="#showFKTabel" prefHeight="79.0" prefWidth="130.0" />
+         </children>
+      </VBox>
+      <Label layoutX="581.0" layoutY="200.0" text="FK Reference Tabel" />
+      <VBox layoutX="584.0" layoutY="224.0" prefHeight="132.0" prefWidth="101.0">
+         <children>
+            <ListView fx:id="listOfRefTables" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

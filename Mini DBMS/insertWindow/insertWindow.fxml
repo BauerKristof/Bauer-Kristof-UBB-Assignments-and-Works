@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="insertWindow.Controller">
+    <children>
+        <Label layoutX="60.0" layoutY="22.0" text="Select Database" />
+        <VBox layoutX="17.0" layoutY="49.0" prefHeight="90.0" prefWidth="170.0">
+            <children>
+                <ListView fx:id="listofDB" onMouseClicked="#showTables" prefHeight="90.0" prefWidth="147.0" />
+            </children>
+        </VBox>
+        <Separator layoutX="-4.0" layoutY="174.0" prefHeight="18.0" prefWidth="606.0" />
+        <Label layoutX="256.0" layoutY="22.0" text="Select Table" />
+        <VBox layoutX="213.0" layoutY="49.0" prefHeight="90.0" prefWidth="149.0" AnchorPane.leftAnchor="213.0">
+            <children>
+                <ListView fx:id="listofTables" onMouseClicked="#showFields" prefHeight="200.0" prefWidth="200.0" />
+            </children>
+        </VBox>
+        <Button fx:id="mainMenuButton" layoutX="262.0" layoutY="359.0" mnemonicParsing="false" onAction="#backToMain" text="Main Menu" />
+        <VBox layoutX="406.0" layoutY="49.0" prefHeight="90.0" prefWidth="138.0">
+            <children>
+                <ListView fx:id="listOfFields" prefHeight="119.0" prefWidth="228.0" />
+            </children>
+        </VBox>
+        <Label layoutX="435.0" layoutY="22.0" text="The table fields" />
+        <Label layoutX="408.0" layoutY="191.0" prefHeight="18.0" prefWidth="77.0" text="Add value" />
+        <TextField fx:id="fieldValue" layoutX="318.0" layoutY="216.0" prefHeight="32.0" prefWidth="258.0" promptText="Type a value for the field" />
+        <Button fx:id="addFieldValue" layoutX="385.0" layoutY="258.0" mnemonicParsing="false" onAction="#addFieldValue" text="Add Field Value" />
+      <Button layoutX="479.0" layoutY="359.0" mnemonicParsing="false" onAction="#saveInsert" text="Save Insert" />
+      <VBox layoutX="23.0" layoutY="198.0" prefHeight="146.0" prefWidth="258.0">
+         <children>
+            <ListView fx:id="listofFiledwithValues" prefHeight="166.0" prefWidth="258.0" />
+         </children>
+      </VBox>
+    </children>
+</AnchorPane>
