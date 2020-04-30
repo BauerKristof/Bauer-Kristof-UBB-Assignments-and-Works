@@ -1,7 +1,7 @@
-## Shooter GUI
+## Train Game
 
-This game is just a test project. This is a gui developed for a shooter game. 
-With the gui's help we can see the position on the surface where we can shoot. It's a 2 player game, one moves the cube the another makes the shot.
-I used these codes mainly for this project.
+This game is not finished yet. 
+This is just level 1, but the main concept is that the player needs to cross the railway without being hit by the trains.
+These trains come in different speed at a random time. Still needs a lot of implementation for mutliple levels.
 
-<img src="https://i.imgur.com/EHW3pI5.gif" width="850">
+<img src="https://thumbs.gfycat.com/BossyMealyAnura-size_restricted.gif" width="850">
