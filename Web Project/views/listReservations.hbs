@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Books</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <h1>Reservation list</h1>
+    {{#if kolcsonzes}}
+      <table border="1" width="100%">
+        <tr><th>Name</th><th>ISBN</th></tr>
+        {{#each kolcsonzes}}
+        <tr> <td>{{KNev}}</td><td>{{KISBN}}</td></tr>
+        {{/each}}
+      </table>
+    {{else}}
+      <p class="message">No reservations to show</p>
+    {{/if}}
+  </body>
+</html>

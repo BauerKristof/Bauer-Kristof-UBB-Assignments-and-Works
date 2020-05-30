@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="utf-8">
+  <title>Konyves Form</title>
+</head>
+
+<body>
+  <h1>Upload book</h1>
+
+  <p>Here you can upload a book (This is only for admins with passwords)</p>
+  
+  <form action="/upload_file" method="POST" enctype="multipart/form-data">
+
+  <div>
+   <label for="isbnNumber">ISBN Number:</label>
+   <input type="text" id="isbnNumber" name="isbnNumber">
+  </div>
+
+  <div>
+   <label for="bookTitle">Title:</label>
+   <input type="text" id="bookTitle" name="bookTitle">
+  </div>
+
+  <div>
+   <label for="bookAuthor">Author:</label>
+   <input type="text" id="bookAuthor" pattern="[A-Z][a-z]+ [A-Z][a-z]+" name="bookAuthor">
+  </div>
+
+  <div>
+   <label for="bookDescription">Description:</label>
+   <input type="text" id="bookDescription" name="bookDescription">
+  </div>
+
+  <div>
+    <p>Book Cover: <input type="file" name="myfile" /></p>
+  </div>
+
+  <div>
+   <label for="bookNumber">Number of the book:</label>
+   <input type="number" id="bookNumber" name="bookNumber">
+  </div>
+
+  <div>
+   <label for="adminPassword">Admin password:</label>
+   <input type="password" id="adminPassword" pattern="adminpass" name="adminPassword">
+  </div>
+ 
+  <div>
+        <button type="submit" id="submitButton">Upload File</button>
+  </div>
+  </form>
+
+
+
+</body>
+</html>

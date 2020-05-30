@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Books</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+  </head>
+
+<body>
+<h1>Return a book</h1>
+  <p>Here you can return a book</p>
+
+  <form action="/form_visszaszolgaltat/book_return" method="POST" enctype="multipart/form-data">
+    <div>
+    <label for="personName">Person:</label>
+   
+    {{#if personNames}}
+    <select name="personName">
+         {{#each personNames}}
+    <option value="{{KNev}}">{{KNev}}</option>
+         {{/each}}
+    </select>
+    {{else}}
+       <p class="message">No requests to show</p>
+    {{/if}}
+    </div>    
+   
+
+    <div>
+    <label for="bookIsbnNumber">ISBN Number:</label>
+    {{#if konyvISBN}}
+    <select name="bookIsbnNumber">
+         {{#each konyvISBN}}
+    <option value="{{KISBN}}">{{KISBN}}</option>
+         {{/each}}
+    </select>
+    {{else}}
+       <p class="message">No requests to show</p>
+    {{/if}}
+    </div>    
+   
+    <div>
+        <button type="submit" id="getBook">Return the book</button>
+    </div>
+   </form>
+</body>

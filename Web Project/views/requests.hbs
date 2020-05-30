@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Books</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+    <script src="/ajax.js"></script>
+  </head>
+  
+  <body>
+    <h1>Books list</h1>
+    {{#if konyv}}
+      <table border="1" width="100%">
+        <tr><th>ISBN Number</th><th>Book Title</th><th>Book Author</th><th>Cover Photo Path</th><th>Book Number</th><th>See Reservation</th><th>Delete Book</th></tr>
+        {{#each konyv}}
+        
+        <tr> 
+        <td onclick="tdClick(this)" id="ISBN?{{ISBN}}">{{ISBN}}</td><td onclick="tdClick(this)" id="Cim?{{ISBN}}">{{Cim}}</td><td onclick="tdClick(this)" id="Szerzo?{{ISBN}}">{{Szerzo}}</td><td onclick="tdClick(this)" id="Boritokep?{{ISBN}}">{{Boritokep}}</td><td onclick="tdClick(this)" id="Peldanyszam?{{ISBN}}">{{Peldanyszam}}</td><td><a href="/form_foglalas/bookIsbn={{ISBN}}">Reservations for a book</a></span></td><td><button onclick="deleteBook(this)"  id="DeleteButton?{{ISBN}}">Delete Book</button></td>      
+        </tr>
+        {{/each}}
+      </table>
+    {{else}}
+      <p class="message">No requests to show</p>
+    {{/if}}
+      </body>
+</html>

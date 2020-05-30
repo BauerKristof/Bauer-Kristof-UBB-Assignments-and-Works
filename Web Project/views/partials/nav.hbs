@@ -1,0 +1,22 @@
+<div id="navbar">
+
+{{#if (eq userInfo "guest")}}
+<form action="/login" method="get">
+    <label for="Submit">You are not logged in</label>
+    <input type="submit" value="Log in" name="Submit" id="frm1_submit" /></form>
+</form>
+{{else}}
+<form action="/logout" method="get">
+    <label for="Submit">Username: {{userInfo}}</label>
+    <input type="submit" value="Log out" name="Submit" id="frm1_submit" /></form>
+</form>
+{{/if}}
+
+<span><a href="/">Book lists</a></span>
+<span><a href="/form_kitolt">Upload book</a></span>
+<span><a href="/form_lefoglal">Reserve book</a></span>
+<span><a href="/form_foglalas">Reservations for a book</a></span>
+<span><a href="/form_visszaszolgaltat">Return a book</a></span>
+<span><a href="/register">Register</a></span>
+
+</div>

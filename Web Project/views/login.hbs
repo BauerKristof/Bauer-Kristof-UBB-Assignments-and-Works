@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+</head>
+
+<body>
+  <h1>Login</h1>
+
+  <p>Give me your username and password</p>
+  
+  <form action="/check_hash" method="POST">
+
+  <div>
+   <label for="userName">User Name:</label>
+   <input type="text" id="userName" name="userName">
+  </div>
+
+  <div>
+   <label for="passWord">Password:</label>
+   <input type="text" id="passWord" name="passWord">
+  </div>
+
+  <div>
+        <button type="submit" id="submitButton">Login</button>
+  </div>
+  </form>
+
+  </body>

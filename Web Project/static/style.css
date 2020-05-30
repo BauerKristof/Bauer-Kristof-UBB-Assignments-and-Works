@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  }
+  code {
+  font-size: 125%;
+  }
+  .message {
+  font-style: italic;
+  }
+  #navbar > span {
+  display: inline-block;
+  width: 10%;
+  }
+  table {
+  width: 100%;
+  }
+  table, th, td {
+  border: 2px solid gray;
+  border-collapse: collapse;
+  padding: 3px;
+  }

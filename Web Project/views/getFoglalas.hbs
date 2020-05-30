@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="utf-8">
+  <title>Konyves Form</title>
+</head>
+
+<body>
+  <h1>Get reservation</h1>
+
+  <p>Here you can get reservatio of a book</p>
+  
+  <form action="/get_foglalast" method="POST" enctype="multipart/form-data">
+
+  <div>
+   <label for="isbnNumber">ISBN Number:</label>
+   <input type="text" id="isbnNumber" name="isbnNumber">
+  </div>
+
+  <div>
+        <button type="submit" id="submitButton">Get Book</button>
+  </div>
+  </form>
+
+  </body>
